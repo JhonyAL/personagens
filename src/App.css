@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-    width: 50%;
+    width: 100%;
     height: 800px;
     padding: 5px 50px;
     border-radius: 5px;
@@ -69,7 +69,7 @@ body {
     gap: 50px;
 }
 
-.cards .card {
+.cards .Card {
     display: flex;
     overflow: hidden;
 
@@ -85,13 +85,13 @@ body {
 
 }
 
-.cards .card img {
+.cards .Card img {
     width: 200px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.cards .card > div {
+.cards .Card > div {
     width: 850px;
     height: 100%;
     font-size: 2rem;
@@ -109,7 +109,7 @@ body {
     }
 }
 
-.cards .card div p {
+.cards .Card div p {
     font-family: 'Righteous';
     color: #412e0d;
     padding: 10px;
@@ -130,18 +130,18 @@ body {
     font-family: 'Noto Sans';
 }
 
-.card div .footer {
+.Card div .footer {
     padding: 10px 0;
     font-size: 1.15rem;
     font-weight: 600;
     color: #412e0d;
 }
 
-.card div .footer span {
+.Card div .footer span {
     color: #0f4080;
     margin-right: 5px;
 }
 
-.cards .card:hover {
+.cards .Card:hover {
     width: 850px;
 }

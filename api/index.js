@@ -1,7 +1,12 @@
 const express = require('express')
-const mysql = require('mysql')
 const cors = require('cors')
+const mysql = require('mysql')
 const app = express()
+
+const PORT = 3001
+
+app.use(cors())
+app.use(express.json())
 
 const connection = mysql.createConnection({
     host     : 'localhost',
@@ -10,20 +15,14 @@ const connection = mysql.createConnection({
     database : 'react'
 });
 
-const PORT = 3001
-
-app.use(cors())
-
 app.get('/', (req, res) => {
 
-    connection.query('SELECT * FROM characters', function (error, results, fields) {
-        // if (error) throw error;
-        // console.log('The solution is: ', results[0].solution);
-        var response = results[0]
-        res.json(response)
-    });
-  
+    connection.query('SELECT * FROM characters', (err, results, fields) => {
+        res.json(results[0])
+    })
 
 })
 
-app.listen(PORT, () => console.log(`Server listening on ${PORT}`))
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
+})
