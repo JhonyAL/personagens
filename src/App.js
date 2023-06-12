@@ -11,16 +11,19 @@ function App() {
 
     fetch('http://localhost:3001')
       .then(response => response.json())
-      .then(response => setCharacters([response]))
+      .then(response => setCharacters(response))
 
   }, [])
 
-  // console.log(characters)
+  const cardActive = ({ target }) => {
+    console.log(target)
+    target.classList.add('card-active')
+  }
 
   const cards = () => {
     return characters.map((value) => {
               return (
-                  <div className="Card" key={value.id}>
+                  <div className="card" key={value.id} onClick={cardActive}>
                     {/* <h1>{value.name}</h1> */}
                     {console.log(value.name)}
                     <Card
@@ -38,17 +41,26 @@ function App() {
   }
 
   return (
-    <div className="container">
-      
-        <h1>South Park</h1>
-        <h2>Personagens</h2>
-    
+    <div className='App'>
 
-        <div className="cards">
-          {  
-            !characters ? "Sem personagens" : cards()
-          }
+      <div className='bg-image'></div>
+
+      <div className="container">
+        <div className='content'>
+
+          <div className='top'>
+            <h1>South Park</h1>
+            <h2>Personagens</h2>
+          </div>
+          
+          <div className="cards">
+            {  
+              !characters ? "Sem personagens" : cards()
+            }
+          </div>
+
         </div>
+      </div>
     </div>
   );
 }

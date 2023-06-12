@@ -1,33 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500&family=Righteous&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family: Arial, Helvetica;
 }
 
 body {
-    background: url("./assets/background-image.png") no-repeat fixed center;
-
-    display: grid;
+    width: 100vw;
+    height: 100vh;
+    /* display: grid;
     place-items: center;
-    padding: 5px;
+    padding: 5px; */
+}
+
+
+.bg-image {
+    width: 100vw;
+    height: 100vh;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: url("./assets/background-image.png") no-repeat fixed center;
 }
 
 .container {
     width: 100%;
-    height: 800px;
-    padding: 5px 50px;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container > .content {
+    max-height: 800px;
+    padding: 55px 50px;
     border-radius: 5px;
 
-    position: relative;
+    backdrop-filter: blur(3.5px);
 
-    background: #ffffff90;
+    background: #ffffff20;
     border: #fff solid 1.5px;
-    box-shadow: 0 4px 30px #00000090;
-    color: #222;
+    box-shadow: 0 5px 30px #00000090;
 
-    overflow-y: scroll;
+    overflow-y: auto;
 
     &::-webkit-scrollbar {
         width: .85em;
@@ -40,36 +61,38 @@ body {
     }
 }
 
-.container > h1 {
-    color: #222;
-    font-size: 3.5rem;
-    text-align: center;
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%, 0%);
+.container > .content > .top > h1 {
+    min-width: 300px;
     padding: 5px;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 35px;
 
+    text-align: center;
+    font-size: 3rem;
+
+    color: #ccc;
     background: #212323aa;
+    
     font-family: 'Righteous';
 }
 
-.container > h2 {
-    color: #458be0;
-    font-size: 2.5rem;
+.container > .content > .top > h2 {
+    margin-bottom: 40px;
+
     text-align: center;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    font-size: 2.5rem;
+
+    color: #1b4d8a;    
 }
 
 .cards {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 50px;
 }
 
-.cards .Card {
+.cards .card {
     display: flex;
     overflow: hidden;
 
@@ -85,13 +108,13 @@ body {
 
 }
 
-.cards .Card img {
+.cards .card img {
     width: 200px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.cards .Card > div {
+.cards .card > div {
     width: 850px;
     height: 100%;
     font-size: 2rem;
@@ -109,7 +132,7 @@ body {
     }
 }
 
-.cards .Card div p {
+.cards .card div p {
     font-family: 'Righteous';
     color: #412e0d;
     padding: 10px;
@@ -130,18 +153,18 @@ body {
     font-family: 'Noto Sans';
 }
 
-.Card div .footer {
+.card div .footer {
     padding: 10px 0;
     font-size: 1.15rem;
     font-weight: 600;
     color: #412e0d;
 }
 
-.Card div .footer span {
+.card div .footer span {
     color: #0f4080;
     margin-right: 5px;
 }
 
-.cards .Card:hover {
+.cards .card-active {
     width: 850px;
 }

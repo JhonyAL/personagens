@@ -18,7 +18,7 @@ const connection = mysql.createConnection({
 app.get('/', (req, res) => {
 
     connection.query('SELECT * FROM characters', (err, results, fields) => {
-        res.json(results[0])
+        res.json(results)
     })
 
 })
